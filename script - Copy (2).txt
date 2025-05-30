@@ -1,0 +1,5 @@
+show
+help
+remove_lower 9
+# test
+remove_by_id 6

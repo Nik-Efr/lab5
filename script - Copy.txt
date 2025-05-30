@@ -1,0 +1,40 @@
+show
+help
+add
+a
+444
+55
+13
+TRAGEDY
+G
+John K
+2001-12-13
+
+1234
+USA
+remove_lower 9
+update_id 9
+mac
+90
+91
+14
+THRILLER
+PG
+Oral B
+1990-10-11
+130
+654
+ITALY
+insert_at 6
+drive
+1
+1
+100
+ACTION
+NC_17
+Mac D
+1984-9-12
+89
+89
+USA
+remove_by_id 9
