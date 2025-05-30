@@ -11,7 +11,6 @@ import java.util.Date;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 public class Person {
     @CsvBindByName (column = "person.name", required = true)
@@ -25,6 +24,14 @@ public class Person {
     private String passportID;//Строка не может быть пустой, Поле может быть null
     @CsvBindByName (column = "person.nationality")
     private Country nationality;//Поле может быть null
+
+    public Person(String name, Date birthday, Double weight, String passportID, Country nationality) {
+        this.name = name;
+        this.birthday = birthday;
+        this.weight = weight;
+        this.passportID = passportID;
+        this.nationality = nationality;
+    }
 
     @Override
     public String toString() {

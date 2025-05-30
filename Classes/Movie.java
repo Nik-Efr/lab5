@@ -54,24 +54,27 @@ public class Movie implements Comparable<Movie> {
 
     public static Movie createFromInput(Context context) {
         String movieName = Movie.enterName(context);
-
+        Coordinates movieCoordinates = Movie.enterCoordinates(context);
+        Integer movieOscars = Movie.enterOscarsCount(context);
+        MovieGenre movieGenre = Movie.enterGenre(context);
+        MpaaRating movieRating = Movie.enterMpaaRating(context);
 
         Person person = null;
-
-        if answer == yes {
-            person = new Person(Movie.enterPersonName(context), enterPersonBirthday(context), enterPersonWeight(context), enterPersonPassportID(context), enterPersonNationality(context));
+        String personName = Movie.enterPersonName(context);
+        if (personName != "null") {
+            person = new Person(personName, enterPersonBirthday(context), enterPersonWeight(context), enterPersonPassportID(context), enterPersonNationality(context));
         }
 
-
-
         return new Movie(0, movieName,
-                Movie.enterCoordinates(context),
+                movieCoordinates,
                 LocalDateTime.now(),
-                Movie.enterOscarsCount(context),
-                Movie.enterGenre(context),
-                Movie.enterMpaaRating(context),
+                movieOscars,
+                movieGenre,
+                movieRating,
                 person);
     }
+
+
 
     public static String enterName(Context context){
         context.universalOutput("Введите имя: ");
@@ -151,13 +154,13 @@ public class Movie implements Comparable<Movie> {
         context.universalOutput("Введите имя оператора: ");
         String name = context.getScanner().nextLine();
 
-        if (name.isBlank() || name.equalsIgnoreCase("null")) {
-            context.universalOutput("Неправильный ввод команды. Поле не должно быть пусто.");
-            return enterPersonName(context);
+        if (name.isBlank()) {
+            return "null";
         } else {
             return name;
         }
     }
+
     public static Double enterPersonWeight(Context context) {
         context.universalOutput("Введите вес оператора: ");
         String input = context.getScanner().nextLine();
